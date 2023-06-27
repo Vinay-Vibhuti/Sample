@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto&display=swap" rel="stylesheet">
+        <title>Test-Youtube</title>
+        <style>
+
+            .Video-Thumbnail-container{
+                position: relative;
+
+            }
+
+            .Abs-Container{
+                position: absolute;
+                right: 8px;
+                bottom: 8px ;
+                background-color: black;
+                color: white;
+                font-family: Roboto;
+                font-size: small;
+                padding-left: 3px;
+                padding-right: 3px;
+                padding-top: 3px ;
+                padding-bottom:3px;
+                border-radius: 2px;
+            }
+
+            .Video-Preview-container{
+                margin-right: 15px;
+            }
+            .Video-Thumbnail{
+                width: 100%;
+            }
+
+            .Full-Page{
+                padding-top: 60px;
+                padding-bottom: 20px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                margin-top: 15px;
+                padding-left: 90px;
+
+            }
+
+            @media (max-width:750px){
+                .Full-Page{
+                    grid-template-columns: 1fr 1fr;
+                }
+            }
+
+
+            @media (min-width:1000px){
+                .Full-Page{
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                }
+            }
+
+            @media (max-width:750px) and (min-width:1000px){
+                .Full-Page{
+                    grid-template-columns: 1fr 1fr 1fr;
+                }
+            }
+
+            .Dp-Stats{
+                display: flex;
+                flex-direction: row;
+                margin-top: 10px;
+
+            }
+
+
+            .Dp{
+                width: 50px;
+            }
+
+            .Stats{
+                flex: 1;
+                vertical-align: top;
+
+            }
+
+
+            .Dp-Image{
+                border-radius: 40px;
+                width: 40px;
+            }
+
+            .About-Paragraph{
+                margin-top: 0;
+                font-family: 'Roboto', sans-serif;
+                font-weight: bold;
+                font-size: 14px;
+                line-height: 20px;
+            }
+
+            .Channel-Name-Views{
+                color: rgb(96, 96, 96);
+                font-family: 'Roboto', sans-serif;
+                font-size: 12px;
+                margin-top: 0px;
+            }
+
+            .Header-Bar{
+                height: 55px;
+                display: flex;
+                flex-direction: row;
+               justify-content: space-between;
+               margin-bottom: 10px;
+               position: fixed;
+               top: 0;
+               left: 0;
+               right: 0;
+               background-color: white;
+               border-bottom-width: 1px;
+               border-bottom-style: solid;
+               border-color: rgb(216, 214, 214);
+               z-index: 100;
+
+            }
+
+            .LeftSide-HeaderBar{
+                display: flex;
+                justify-content:start;
+                width: 250px;
+
+            }
+
+            .hamburger{
+                width: 24px;
+                margin-left: 18px;
+                margin-right: 20px;
+            }
+
+            .youtube{
+                width: 90px;
+            }
+
+            .Middle-HeaderBar{
+                flex: 1;
+                margin-left: 70px;
+                margin-right: 35px;
+                max-width: 500px;
+                display: flex;
+                align-items: center;
+            }
+
+            .RightSide-HeaderBar{
+                width: 200px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                flex-shrink: 0;
+                margin-right: 15px;
+            }
+
+            .RightSide-Icons{
+                width: 24px;
+                
+            }
+
+            .Search-Icons{
+                width: 24px;
+            }
+
+            .Speak-Icons{
+                width: 24px;
+                height: 24px;
+                
+            }
+
+            .Search-Field{
+                flex: 1;
+                height: 36px;
+                padding-left: 10px;
+                font-size: 16px;
+                border-width: 1px;
+                border-style: solid;
+                border-color: rgb(192, 192, 192);
+                border-radius: 2px;
+                box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+                width: 0;
+            }
+
+            .Speak-Button{
+                border-radius: 20px;
+                border-style: none;
+                height: 40px;
+                width: 40px;
+                margin-left: 5px;
+            }
+
+            .Search-Button{
+                height: 40px;
+                width: 60px;
+                margin-left: -1px;
+                position: relative;
+            }
+
+            .Channel-Icons{
+                width: 32x;
+                height: 32px;
+            }
+
+            body{
+                margin: 0px;
+            }
+
+
+            .Sidebar{
+                width: 80px;
+                left: 0px;
+                bottom: 0px;
+                position: fixed;
+                background-color: white;
+                top: 55px;
+            }
+
+
+            .Sidebar-link{
+                height: 75px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                font-size: 10px;    
+                font-family: Roboto;
+                font-weight: 500;
+            }
+
+            .Sidebar-link img{
+                height: 24px;
+            }
+
+
+
+            .Sidebar-link:hover{
+                background-color: rgb(230, 227, 227);
+            }
+
+
+            .Home-Div{
+                display: flex;
+                flex: 1;
+                box-sizing: border-box;
+            }
+
+            .Explore-Div{
+                display: flex;
+                flex: 1;
+            }
+            .Subscriptions-Div{
+                display: flex;
+                flex: 1;
+            }
+
+            .Originals-Div{
+                display: flex;
+                flex: 1;
+            }
+            .Youtube-Music-Div{
+                display: flex;
+                flex: 1;
+            }
+
+            .Library-Div{
+                display: flex;
+                flex: 1;
+            }
+
+            .Sidebar-FullPage{
+                display: flex;
+            }
+
+            .rel-Notification{
+                position: relative;
+            }
+
+            .abs-Noti{
+                position: absolute;
+                top: 1px;
+                right: -2px;
+                background-color: rgb(201, 3, 3);
+                color: white;
+                padding-left: 4px;
+                padding-right: 4px;
+                border-radius: 10px;
+                font-size: 10px;
+                font-family: Roboto;
+            }
+
+            .Search-Button .Search-Tooltip,
+            .Speak-Button .Voice-Tooltip {
+                position: absolute;
+                background-color: rgb(209, 204, 204);
+                padding-top: 2px;
+                padding-bottom: 2px;
+                padding-left: 4px;
+                padding-right: 4px;
+                bottom: -25px;
+                opacity: 0;
+                pointer-events: none;
+            }
+
+            .Search-Button:hover .Search-Tooltip{
+                opacity: 1;
+            }
+            
+        </style>
+    </head>
+    <body style="padding-bottom: 1000px;">
+
+        <div class="Header-Bar">
+            <div class="LeftSide-HeaderBar">
+                <img class="hamburger" src="Header_Icons\hamburger-menu.svg" alt="hamburger">
+                <img class="youtube"src="Header_Icons\youtube-logo.svg" alt="youtube-logo">
+            </div>
+
+            <div class="Middle-HeaderBar">
+                <input class="Search-Field" type="text" placeholder="Search">
+                <button class="Search-Button">
+                    <img class="Search-Icons" src="Header_Icons/search.svg" alt="">
+                    <div class="Search-Tooltip">
+                        Search
+                    </div> 
+                </button>
+                <button class="Speak-Button">
+                    <img class="Speak-Icons" src="Header_Icons/voice-search-icon.svg" alt="">
+                    <div class="Voice-Tooltip">
+                        Search with your voice
+                    </div>
+                </button>
+            </div>
+
+            <div class="RightSide-HeaderBar">
+                <img class="RightSide-Icons" src="Header_Icons/upload.svg" alt="">
+                <img class="RightSide-Icons" src="Header_Icons/youtube-apps.svg" alt="">
+                <div class="rel-Notification">
+                    <img class="RightSide-Icons" src="Header_Icons/notifications.svg" alt="">
+                    <div class="abs-Noti">
+                        3
+                    </div>
+                </div>
+                <img class="Channel-Icons" src="Header_Icons/my-channel.jpeg" alt="">
+            </div>
+        </div>
+
+        <div class="Sidebar">
+            <div class="Sidebar-link">
+                <img Class="Home" src="Sidebar_Icons\home.svg" alt="">
+                <div>Home</div>
+            </div>
+            <div class="Sidebar-link">
+                <img Class="Explore" src="Sidebar_Icons/explore.svg" alt="">
+                <div>explore</div>
+            </div>
+            <div class="Sidebar-link">
+                <img Class="Subscriptions" src="Sidebar_Icons/subscriptions.svg" alt="">
+                <div>subscriptions</div>
+            </div>
+            <div class="Sidebar-link">
+                <img Class="Originals" src="Sidebar_Icons/originals.svg" alt="">
+                <div>originals</div>
+            </div>
+            <div class="Sidebar-link">
+                <img Class="Youtube-Music" src="Sidebar_Icons/youtube-music.svg" alt="">
+                <div>youtube-music</div>
+            </div>
+            <div class="Sidebar-link">
+                <img Class="Library" src="Sidebar_Icons/library.svg" alt="">
+                <div>Library</div>
+            </div>
+        </div>
+
+        <div class="Full-Page">
+            <div class="Video-Preview-container">
+                <div class="Video-Thumbnail-container">
+                    <img class="Video-Thumbnail" src="Thumbail_Images/thumbnail-1.webp" alt="Marques-Brownie">
+                    <div class="Abs-Container">
+                        14.20    
+                    </div>
+                </div>
+                <div class="Dp-Stats">
+                    <div class="Dp">
+                        <img class="Dp-Image" src="Profile_Images\channel-1.jpeg" alt="">
+                    </div>
+                    <div class="Stats">
+                        <p class="About-Paragraph">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+                        <p class="Channel-Name-Views">Marques Brownlee</p>
+                        <p class="Channel-Name-Views">3.4M views · 6 months ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="Video-Preview-container">
+                <div class="Video-Thumbnail-container">
+                    <img class="Video-Thumbnail" src="Thumbail_Images/thumbnail-2.webp" alt="Marques-Brownie">
+                    <div class="Abs-Container">
+                        14.20    
+                    </div>
+                </div>
+                <div class="Dp-Stats">
+                    <div class="Dp">
+                        <img class="Dp-Image" src="Profile_Images\channel-2.jpeg" alt="">
+                    </div>
+                    <div class="Stats">
+                        <p class="About-Paragraph">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+                        <p class="Channel-Name-Views">Marques Brownlee</p>
+                        <p class="Channel-Name-Views">3.4M views · 6 months ago</p>
+                    </div>
+                </div>
+            </div>   
+            <div class="Video-Preview-container">
+                <div class="Video-Thumbnail-container">
+                    <img class="Video-Thumbnail" src="Thumbail_Images/thumbnail-3.webp" alt="Marques-Brownie">
+                    <div class="Abs-Container">
+                        14.20    
+                    </div>
+                </div>
+                <div class="Dp-Stats">
+                    <div class="Dp">
+                        <img class="Dp-Image" src="Profile_Images\channel-3.jpeg" alt="">
+                    </div>
+                    <div class="Stats">
+                        <p class="About-Paragraph">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+                        <p class="Channel-Name-Views">Marques Brownlee</p>
+                        <p class="Channel-Name-Views">3.4M views · 6 months ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="Video-Preview-container">
+                <div class="Video-Thumbnail-container">
+                    <img class="Video-Thumbnail" src="Thumbail_Images/thumbnail-4.webp" alt="Marques-Brownie">
+                    <div class="Abs-Container">
+                        14.20    
+                    </div>
+                </div>
+                <div class="Dp-Stats">
+                    <div class="Dp">
+                        <img class="Dp-Image" src="Profile_Images\channel-4.jpeg" alt="">
+                    </div>
+                    <div class="Stats">
+                        <p class="About-Paragraph">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+                        <p class="Channel-Name-Views">Marques Brownlee</p>
+                        <p class="Channel-Name-Views">3.4M views · 6 months ago</p>
+                    </div>
+                </div>
+            </div> 
+            <div class="Video-Preview-container">
+                <div class="Video-Thumbnail-container">
+                    <img class="Video-Thumbnail" src="Thumbail_Images/thumbnail-5.webp" alt="Marques-Brownie">
+                    <div class="Abs-Container">
+                        14.20    
+                    </div>
+                </div>
+                <div class="Dp-Stats">
+                    <div class="Dp">
+                        <img class="Dp-Image" src="Profile_Images\channel-5.jpeg" alt="">
+                    </div>
+                    <div class="Stats">
+                        <p class="About-Paragraph">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+                        <p class="Channel-Name-Views">Marques Brownlee</p>
+                        <p class="Channel-Name-Views">3.4M views · 6 months ago</p>
+                    </div>
+                </div>
+            </div>
+            <div class="Video-Preview-container">
+                <div class="Video-Thumbnail-container">
+                    <img class="Video-Thumbnail" src="Thumbail_Images/thumbnail-6.webp" alt="Marques-Brownie">
+                    <div class="Abs-Container">
+                        14.20    
+                    </div>
+                </div>
+                <div class="Dp-Stats">
+                    <div class="Dp">
+                        <img class="Dp-Image" src="Profile_Images\channel-6.jpeg" alt="">
+                    </div>
+                    <div class="Stats">
+                        <p class="About-Paragraph">Talking Tech and AI with Google CEO Sundar Pichai!</p>
+                        <p class="Channel-Name-Views">Marques Brownlee</p>
+                        <p class="Channel-Name-Views">3.4M views · 6 months ago</p>
+                    </div>
+                </div>
+            </div>
+            </div>   
+    </body>
+</html>
